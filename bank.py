@@ -1,18 +1,37 @@
-from threading import activeCount
+class Account:
+    def __init__(self,name,acc_number):
+      self.balance=0
+      self.name=name
+      self.acc_number=acc_number
+      self.deposits=[]
+      self.withdrawals=[]
+      
+    
+    def deposit(self,amount):
+        if amount <=0:
+         return f"Deposited amount, should be more than zero"
+        else:
+            self.balance+=amount
+            self.deposits.append(f"Hello{self.name}, you have deposited{amount} your balance is {self.balance}") 
+        return f"Hello {self.name}, you have deposited {amount}"
+    def withdraw(self,amount):
+        if amount>self.balance:
+           return f"Your balance is {self.balance} , you cannot withdraw the {amount}"
+        elif amount <=0:
+            return f"Amount must be greater than zero"
+        else:
+            self.balance-=amount
+            self.withdrawals.append(f"You have withdrawn {amount}")
+            return f"You have withdrawn {amount} your balance is {self.balance}"       
+    def deposits_statement(self):
+        for statements in self.deposits:
+           print(statements)
+    def withdraw_statement(self):
+        for statements in self.withdrawals:
+          print(statements)    
 
 
-class Bankaccount:
-      def __init__(self,account_name,balance,amount_withdraw,amount_deposited):
-          self.amount_deposited=amount_deposited
-          self.amount_withdraw=amount_withdraw
-          self.balance=balance
-          self.account_name=account_name
-      def deposit(self):
-        self.balance += self.amount_deposited
-        return f"Hello {self.account_name} you have withdrawn { self.amount_deposited}your new balance is{   self.balance} " 
 
-      def withdraw(self):
-        self.amount_deposited -= self.amount_withdraw
-        return f"Hello {self.account_name} you have withdrawn { self.amount_withdraw}your new balance is{   self.balance} " 
 
-         
+
+  
