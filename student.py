@@ -1,14 +1,14 @@
 class Student:
     school="Akirachix"
-    def __init__(self,name ,age,country,firstname,lastname):
+    def __init__(self,name ,age,country,first_name,last_name):
         self.name=name
         self.age=age
         self.country=country
-        self.firstname= firstname
-        self.lastname=lastname
+        self.first_name= first_name
+        self.last_name=last_name
     def greet(self):
-        return f"Hello{self.name} from {self.country}.Welcome to {self.school}"
+        return f"Hello {self.name} from {self.country}.Welcome to {self.school}"
     def full_name(self):
-        return f"your full name is {self.firstname} {self.lastname}"
+        return f"your full name is {self.first_name} {self.last_name}"
     def initials(self):
-        return f"your initials is {self.firstname[0]}.{self.lastname[0]}"
+        return f"your initials is {self.first_name[0]}.{self.last_name[0]}"
